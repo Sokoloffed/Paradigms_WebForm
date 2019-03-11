@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebsiteForParadigms", "WebsiteForParadigms\WebsiteForParadigms.csproj", "{1F18F7EE-5894-46FC-B545-4B63909C28EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F18F7EE-5894-46FC-B545-4B63909C28EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F18F7EE-5894-46FC-B545-4B63909C28EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F18F7EE-5894-46FC-B545-4B63909C28EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F18F7EE-5894-46FC-B545-4B63909C28EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4161B13B-230F-4866-9F9D-09230A0FDD4D}
+	EndGlobalSection
+EndGlobal
