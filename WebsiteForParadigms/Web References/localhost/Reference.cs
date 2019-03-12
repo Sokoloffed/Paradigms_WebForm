@@ -29,13 +29,11 @@ namespace WebsiteForParadigms.localhost {
     [System.Web.Services.WebServiceBindingAttribute(Name="LabServiceSoap", Namespace="http://tempuri.org/")]
     public partial class LabService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sosite_primitiviOperationCompleted;
-        
         private System.Threading.SendOrPostCallback Lab1_22OperationCompleted;
         
         private System.Threading.SendOrPostCallback Lab1_51OperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Lab2_4OperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -76,72 +74,13 @@ namespace WebsiteForParadigms.localhost {
         }
         
         /// <remarks/>
-        public event HelloWorldCompletedEventHandler HelloWorldCompleted;
-        
-        /// <remarks/>
-        public event Sosite_primitiviCompletedEventHandler Sosite_primitiviCompleted;
-        
-        /// <remarks/>
         public event Lab1_22CompletedEventHandler Lab1_22Completed;
         
         /// <remarks/>
         public event Lab1_51CompletedEventHandler Lab1_51Completed;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string HelloWorld() {
-            object[] results = this.Invoke("HelloWorld", new object[0]);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void HelloWorldAsync() {
-            this.HelloWorldAsync(null);
-        }
-        
-        /// <remarks/>
-        public void HelloWorldAsync(object userState) {
-            if ((this.HelloWorldOperationCompleted == null)) {
-                this.HelloWorldOperationCompleted = new System.Threading.SendOrPostCallback(this.OnHelloWorldOperationCompleted);
-            }
-            this.InvokeAsync("HelloWorld", new object[0], this.HelloWorldOperationCompleted, userState);
-        }
-        
-        private void OnHelloWorldOperationCompleted(object arg) {
-            if ((this.HelloWorldCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.HelloWorldCompleted(this, new HelloWorldCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sosite_primitivi", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int Sosite_primitivi(int suka) {
-            object[] results = this.Invoke("Sosite_primitivi", new object[] {
-                        suka});
-            return ((int)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sosite_primitiviAsync(int suka) {
-            this.Sosite_primitiviAsync(suka, null);
-        }
-        
-        /// <remarks/>
-        public void Sosite_primitiviAsync(int suka, object userState) {
-            if ((this.Sosite_primitiviOperationCompleted == null)) {
-                this.Sosite_primitiviOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSosite_primitiviOperationCompleted);
-            }
-            this.InvokeAsync("Sosite_primitivi", new object[] {
-                        suka}, this.Sosite_primitiviOperationCompleted, userState);
-        }
-        
-        private void OnSosite_primitiviOperationCompleted(object arg) {
-            if ((this.Sosite_primitiviCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sosite_primitiviCompleted(this, new Sosite_primitiviCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
+        public event Lab2_4CompletedEventHandler Lab2_4Completed;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Lab1_22", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -202,6 +141,35 @@ namespace WebsiteForParadigms.localhost {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Lab2_4", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int[] Lab2_4(int[] input) {
+            object[] results = this.Invoke("Lab2_4", new object[] {
+                        input});
+            return ((int[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Lab2_4Async(int[] input) {
+            this.Lab2_4Async(input, null);
+        }
+        
+        /// <remarks/>
+        public void Lab2_4Async(int[] input, object userState) {
+            if ((this.Lab2_4OperationCompleted == null)) {
+                this.Lab2_4OperationCompleted = new System.Threading.SendOrPostCallback(this.OnLab2_4OperationCompleted);
+            }
+            this.InvokeAsync("Lab2_4", new object[] {
+                        input}, this.Lab2_4OperationCompleted, userState);
+        }
+        
+        private void OnLab2_4OperationCompleted(object arg) {
+            if ((this.Lab2_4Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Lab2_4Completed(this, new Lab2_4CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -217,58 +185,6 @@ namespace WebsiteForParadigms.localhost {
                 return true;
             }
             return false;
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
-    public delegate void HelloWorldCompletedEventHandler(object sender, HelloWorldCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class HelloWorldCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal HelloWorldCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
-    public delegate void Sosite_primitiviCompletedEventHandler(object sender, Sosite_primitiviCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sosite_primitiviCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sosite_primitiviCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public int Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
         }
     }
     
@@ -311,6 +227,32 @@ namespace WebsiteForParadigms.localhost {
         private object[] results;
         
         internal Lab1_51CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    public delegate void Lab2_4CompletedEventHandler(object sender, Lab2_4CompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Lab2_4CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Lab2_4CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

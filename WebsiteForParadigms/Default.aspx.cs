@@ -50,17 +50,17 @@ namespace WebsiteForParadigms
 
         protected void Lab22_button_Click(object sender, EventArgs e)
         {
-            int[] val_arr = doPrepare();
-            int[] respond = labService.Lab1_22(val_arr);
-            doOutputArray(respond);
+            doOutputArray(labService.Lab1_22(doPrepare()));
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            int[] val_arr = doPrepare();
-            int[] respond = labService.Lab1_51(val_arr);
-            doOutputArray(respond);
+            doOutputArray(labService.Lab1_51(doPrepare()));
+        }
 
+        protected void Lab24_button_Click(object sender, EventArgs e)
+        {
+            doOutputArray(labService.Lab2_4(doPrepare()));
         }
     }
 }
