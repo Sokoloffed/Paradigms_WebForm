@@ -35,6 +35,8 @@ namespace WebsiteForParadigms.localhost {
         
         private System.Threading.SendOrPostCallback Lab1_22OperationCompleted;
         
+        private System.Threading.SendOrPostCallback Lab1_51OperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -81,6 +83,9 @@ namespace WebsiteForParadigms.localhost {
         
         /// <remarks/>
         public event Lab1_22CompletedEventHandler Lab1_22Completed;
+        
+        /// <remarks/>
+        public event Lab1_51CompletedEventHandler Lab1_51Completed;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -168,6 +173,35 @@ namespace WebsiteForParadigms.localhost {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Lab1_51", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int[] Lab1_51(int[] input) {
+            object[] results = this.Invoke("Lab1_51", new object[] {
+                        input});
+            return ((int[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Lab1_51Async(int[] input) {
+            this.Lab1_51Async(input, null);
+        }
+        
+        /// <remarks/>
+        public void Lab1_51Async(int[] input, object userState) {
+            if ((this.Lab1_51OperationCompleted == null)) {
+                this.Lab1_51OperationCompleted = new System.Threading.SendOrPostCallback(this.OnLab1_51OperationCompleted);
+            }
+            this.InvokeAsync("Lab1_51", new object[] {
+                        input}, this.Lab1_51OperationCompleted, userState);
+        }
+        
+        private void OnLab1_51OperationCompleted(object arg) {
+            if ((this.Lab1_51Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Lab1_51Completed(this, new Lab1_51CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -251,6 +285,32 @@ namespace WebsiteForParadigms.localhost {
         private object[] results;
         
         internal Lab1_22CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    public delegate void Lab1_51CompletedEventHandler(object sender, Lab1_51CompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Lab1_51CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Lab1_51CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

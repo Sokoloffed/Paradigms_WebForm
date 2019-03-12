@@ -10,6 +10,9 @@ namespace WebsiteForParadigms
 {
     public partial class _Default : Page
     {
+        localhost.LabService labService = new localhost.LabService();
+        string array;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,25 +23,43 @@ namespace WebsiteForParadigms
 
         }
 
-        protected void Lab22_button_Click(object sender, EventArgs e)
+        protected int[] doPrepare()
         {
-            localhost.LabService labService = new localhost.LabService();
-            string array = Lab22_Textbox.Text;
+            //localhost.LabService labService = new localhost.LabService();
+            array = Lab22_Textbox.Text;
             string[] splittedStr = array.Split(',');
             List<int> val = new List<int>();
-            for(int i = 0; i < splittedStr.Length; i++)
+            for (int i = 0; i < splittedStr.Length; i++)
             {
                 val.Add(Convert.ToInt32(splittedStr[i]));
             }
             int[] val_arr = val.ToArray();
-            int[] respond = labService.Lab1_22(val_arr);
+            return val_arr;
+
+        }
+
+        protected void doOutputArray(int[] arr)
+        {
             StringBuilder sb = new StringBuilder();
-            foreach(int v in respond)
+            foreach (int v in arr)
             {
-                sb.Append(Convert.ToString(v));
+                sb.Append(Convert.ToString(v) + ", ");
             }
             Lab22_Label.Text = sb.ToString();
+        }
 
+        protected void Lab22_button_Click(object sender, EventArgs e)
+        {
+            int[] val_arr = doPrepare();
+            int[] respond = labService.Lab1_22(val_arr);
+            doOutputArray(respond);
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int[] val_arr = doPrepare();
+            int[] respond = labService.Lab1_51(val_arr);
+            doOutputArray(respond);
 
         }
     }

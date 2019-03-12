@@ -31,6 +31,15 @@ namespace WebsiteForParadigms {
         protected global::System.Web.UI.WebControls.Button Lab22_button;
         
         /// <summary>
+        /// Lab51_button элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Lab51_button;
+        
+        /// <summary>
         /// Lab22_Label элемент управления.
         /// </summary>
         /// <remarks>
