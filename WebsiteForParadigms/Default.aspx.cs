@@ -62,5 +62,11 @@ namespace WebsiteForParadigms
         {
             doOutputArray(labService.Lab2_4(doPrepare()));
         }
+
+        protected void Lab37_button_Click(object sender, EventArgs e)
+        {
+            labService.Lab3_7();
+
+        }
     }
 }

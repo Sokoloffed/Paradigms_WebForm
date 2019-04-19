@@ -49,6 +49,12 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Lab3_7">
+        <s:complexType />
+      </s:element>
+      <s:element name="Lab3_7Response">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="Lab1_22SoapIn">
@@ -69,6 +75,12 @@
   <wsdl:message name="Lab2_4SoapOut">
     <wsdl:part name="parameters" element="tns:Lab2_4Response" />
   </wsdl:message>
+  <wsdl:message name="Lab3_7SoapIn">
+    <wsdl:part name="parameters" element="tns:Lab3_7" />
+  </wsdl:message>
+  <wsdl:message name="Lab3_7SoapOut">
+    <wsdl:part name="parameters" element="tns:Lab3_7Response" />
+  </wsdl:message>
   <wsdl:portType name="LabServiceSoap">
     <wsdl:operation name="Lab1_22">
       <wsdl:input message="tns:Lab1_22SoapIn" />
@@ -81,6 +93,10 @@
     <wsdl:operation name="Lab2_4">
       <wsdl:input message="tns:Lab2_4SoapIn" />
       <wsdl:output message="tns:Lab2_4SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lab3_7">
+      <wsdl:input message="tns:Lab3_7SoapIn" />
+      <wsdl:output message="tns:Lab3_7SoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="LabServiceSoap" type="tns:LabServiceSoap">
@@ -112,6 +128,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Lab3_7">
+      <soap:operation soapAction="http://tempuri.org/Lab3_7" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="LabServiceSoap12" type="tns:LabServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -135,6 +160,15 @@
     </wsdl:operation>
     <wsdl:operation name="Lab2_4">
       <soap12:operation soapAction="http://tempuri.org/Lab2_4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lab3_7">
+      <soap12:operation soapAction="http://tempuri.org/Lab3_7" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
