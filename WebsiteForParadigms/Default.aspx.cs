@@ -38,6 +38,12 @@ namespace WebsiteForParadigms
 
         }
 
+        protected string doPrepareAutomaton()
+        {
+            array = Lab22_Textbox.Text;
+            return array;
+        }
+
         protected void doOutputArray(int[] arr)
         {
             StringBuilder sb = new StringBuilder();
@@ -47,6 +53,8 @@ namespace WebsiteForParadigms
             }
             Lab22_Label.Text = sb.ToString();
         }
+
+
 
         protected void Lab22_button_Click(object sender, EventArgs e)
         {
@@ -65,7 +73,13 @@ namespace WebsiteForParadigms
 
         protected void Lab37_button_Click(object sender, EventArgs e)
         {
-            labService.Lab3_7();
+            List<char> answer = labService.Lab4_5().ToList();
+            StringBuilder sb = new StringBuilder();
+            foreach(char c in answer)
+            {
+                sb.Append(c);
+            }
+            Lab22_Label.Text = sb.ToString();
 
         }
     }

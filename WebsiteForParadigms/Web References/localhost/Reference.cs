@@ -37,6 +37,8 @@ namespace WebsiteForParadigms.localhost {
         
         private System.Threading.SendOrPostCallback Lab3_7OperationCompleted;
         
+        private System.Threading.SendOrPostCallback Lab4_5OperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -86,6 +88,9 @@ namespace WebsiteForParadigms.localhost {
         
         /// <remarks/>
         public event Lab3_7CompletedEventHandler Lab3_7Completed;
+        
+        /// <remarks/>
+        public event Lab4_5CompletedEventHandler Lab4_5Completed;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Lab1_22", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -176,27 +181,56 @@ namespace WebsiteForParadigms.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Lab3_7", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void Lab3_7() {
-            this.Invoke("Lab3_7", new object[0]);
+        public void Lab3_7(string w) {
+            this.Invoke("Lab3_7", new object[] {
+                        w});
         }
         
         /// <remarks/>
-        public void Lab3_7Async() {
-            this.Lab3_7Async(null);
+        public void Lab3_7Async(string w) {
+            this.Lab3_7Async(w, null);
         }
         
         /// <remarks/>
-        public void Lab3_7Async(object userState) {
+        public void Lab3_7Async(string w, object userState) {
             if ((this.Lab3_7OperationCompleted == null)) {
                 this.Lab3_7OperationCompleted = new System.Threading.SendOrPostCallback(this.OnLab3_7OperationCompleted);
             }
-            this.InvokeAsync("Lab3_7", new object[0], this.Lab3_7OperationCompleted, userState);
+            this.InvokeAsync("Lab3_7", new object[] {
+                        w}, this.Lab3_7OperationCompleted, userState);
         }
         
         private void OnLab3_7OperationCompleted(object arg) {
             if ((this.Lab3_7Completed != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.Lab3_7Completed(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Lab4_5", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public char[] Lab4_5() {
+            object[] results = this.Invoke("Lab4_5", new object[0]);
+            return ((char[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Lab4_5Async() {
+            this.Lab4_5Async(null);
+        }
+        
+        /// <remarks/>
+        public void Lab4_5Async(object userState) {
+            if ((this.Lab4_5OperationCompleted == null)) {
+                this.Lab4_5OperationCompleted = new System.Threading.SendOrPostCallback(this.OnLab4_5OperationCompleted);
+            }
+            this.InvokeAsync("Lab4_5", new object[0], this.Lab4_5OperationCompleted, userState);
+        }
+        
+        private void OnLab4_5OperationCompleted(object arg) {
+            if ((this.Lab4_5Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Lab4_5Completed(this, new Lab4_5CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -300,6 +334,32 @@ namespace WebsiteForParadigms.localhost {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void Lab3_7CompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void Lab4_5CompletedEventHandler(object sender, Lab4_5CompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Lab4_5CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Lab4_5CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public char[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((char[])(this.results[0]));
+            }
+        }
+    }
 }
 
 #pragma warning restore 1591

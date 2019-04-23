@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
       <s:element name="Lab1_22">
         <s:complexType>
           <s:sequence>
@@ -50,11 +51,35 @@
         </s:complexType>
       </s:element>
       <s:element name="Lab3_7">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="w" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="Lab3_7Response">
         <s:complexType />
       </s:element>
+      <s:element name="Lab4_5">
+        <s:complexType />
+      </s:element>
+      <s:element name="Lab4_5Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lab4_5Result" type="tns:ArrayOfChar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfChar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="char" type="s1:char" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="Lab1_22SoapIn">
@@ -81,6 +106,12 @@
   <wsdl:message name="Lab3_7SoapOut">
     <wsdl:part name="parameters" element="tns:Lab3_7Response" />
   </wsdl:message>
+  <wsdl:message name="Lab4_5SoapIn">
+    <wsdl:part name="parameters" element="tns:Lab4_5" />
+  </wsdl:message>
+  <wsdl:message name="Lab4_5SoapOut">
+    <wsdl:part name="parameters" element="tns:Lab4_5Response" />
+  </wsdl:message>
   <wsdl:portType name="LabServiceSoap">
     <wsdl:operation name="Lab1_22">
       <wsdl:input message="tns:Lab1_22SoapIn" />
@@ -97,6 +128,10 @@
     <wsdl:operation name="Lab3_7">
       <wsdl:input message="tns:Lab3_7SoapIn" />
       <wsdl:output message="tns:Lab3_7SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lab4_5">
+      <wsdl:input message="tns:Lab4_5SoapIn" />
+      <wsdl:output message="tns:Lab4_5SoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="LabServiceSoap" type="tns:LabServiceSoap">
@@ -137,6 +172,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Lab4_5">
+      <soap:operation soapAction="http://tempuri.org/Lab4_5" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="LabServiceSoap12" type="tns:LabServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -169,6 +213,15 @@
     </wsdl:operation>
     <wsdl:operation name="Lab3_7">
       <soap12:operation soapAction="http://tempuri.org/Lab3_7" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lab4_5">
+      <soap12:operation soapAction="http://tempuri.org/Lab4_5" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
